@@ -1,1 +1,7 @@
 django
+django-bootstrap3
+django-extensions
+django-debug-toolbar
+git+https://github.com/tomchristie/django-pdb
+hamlpy
+werkzeug
