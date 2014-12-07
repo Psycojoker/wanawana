@@ -1,0 +1,19 @@
+-extends "bootstrap3/bootstrap3.html"
+
+-load bootstrap3
+
+-block bootstrap3_title
+  Wanwana meet?
+
+-block bootstrap3_content
+  .container
+    %h1 Event administration
+    %hr
+
+    %form.form{method: "post"}
+      -csrf_token
+      -bootstrap_form form
+      {% buttons %}
+        %button.btn.btn-primary{type: "submit"}
+          Modify
+      {% endbuttons %}

@@ -1,6 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.views.generic.edit import UpdateView
 
 from .forms import NewEventForm
 from .models import Event
@@ -30,3 +31,19 @@ def new_event(request):
     return render(request, "events/new.haml", {
         "form": form,
     })
+
+
+class EventAdminView(UpdateView):
+    model = Event
+    template_name = "events/event_form.haml"
+
+    fields = [
+        'title',
+        'description',
+        'date',
+        'time',
+        'location_address',
+    ]
+
+    def get_object(self):
+        return get_object_or_404(Event, admin_id=self.kwargs["admin_id"])
