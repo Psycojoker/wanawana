@@ -16,7 +16,7 @@ class NewEventForm(forms.Form):
     def generate_admin_id(self):
         password = generate_random_password(30)
 
-        while Event.objects.filter(admin_id=password):
+        while Event.objects.filter(admin_id=password).exists():
             password = generate_random_password(30)
 
         return password
