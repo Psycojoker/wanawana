@@ -9,11 +9,17 @@ Event management
 
 * localisation via leaflet of the event
 * users invitation
+* possibility to require participant emails
+* offer differents css templates
+* show/hide users list
+* limit the number of places available
 
 Event page
 ==========
 
 * comments
+* possibility for an user to not appears in the user list
+* anti spam ?
 
 Group
 =====
