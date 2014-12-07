@@ -1,0 +1,4 @@
+ve/
+db.sqlite3
+*.pyc
+*.swp
