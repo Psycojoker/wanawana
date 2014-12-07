@@ -8,10 +8,9 @@ from .models import Event
 class NewEventForm(forms.Form):
     title = forms.CharField()
     slug = forms.SlugField(required=False)
-    description = forms.CharField(required=False)
-    admin_email = forms.EmailField(required=False)
-    date = forms.DateField(required=False)
-    time = forms.TimeField(required=False)
+    description = forms.CharField(required=False, widget=forms.Textarea)
+    date = forms.DateField(required=False, widget=forms.DateInput)
+    time = forms.TimeField(required=False, widget=forms.TimeInput)
     location_address = forms.CharField(required=False)
 
     def generate_admin_id(self):
