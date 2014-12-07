@@ -47,3 +47,6 @@ class EventAdminView(UpdateView):
 
     def get_object(self):
         return get_object_or_404(Event, admin_id=self.kwargs["admin_id"])
+
+    def get_success_url(self):
+        return reverse("event_admin", args=(self.kwargs["admin_id"],))
