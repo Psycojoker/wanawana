@@ -10,6 +10,9 @@
     %h1 Event administration
     %hr
 
+    .alert.alert-danger
+      %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
+
     %form.form{method: "post"}
       -csrf_token
       -bootstrap_form form
