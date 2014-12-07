@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def new_event(request):
+    return render(request, "events/new.haml", {})
