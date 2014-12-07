@@ -9,7 +9,7 @@ class Event(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     last_modification_date = models.DateTimeField(auto_now_add=True)
 
-    admin_id = models.EmailField(db_index=True, unique=True)
+    admin_id = models.CharField(max_length=30, db_index=True, unique=True)
 
     date = models.DateField(null=True, blank=True)
     time = models.TimeField(null=True, blank=True)
