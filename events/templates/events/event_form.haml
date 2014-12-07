@@ -1,22 +1,18 @@
--extends "bootstrap3/bootstrap3.html"
+-extends "base.haml"
 
 -load bootstrap3
 
--block bootstrap3_title
-  Wanwana meet?
+-block content
+  %h1 Event administration
+  %hr
 
--block bootstrap3_content
-  .container
-    %h1 Event administration
-    %hr
+  .alert.alert-danger
+    %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
 
-    .alert.alert-danger
-      %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
-
-    %form.form{method: "post"}
-      -csrf_token
-      -bootstrap_form form
-      {% buttons %}
-        %button.btn.btn-primary{type: "submit"}
-          Modify
-      {% endbuttons %}
+  %form.form{method: "post"}
+    -csrf_token
+    -bootstrap_form form
+    {% buttons %}
+      %button.btn.btn-primary{type: "submit"}
+        Modify
+    {% endbuttons %}
