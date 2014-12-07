@@ -13,7 +13,7 @@ def new_event(request):
     if request.method == "POST" and form.is_valid():
         event = Event()
         event.title = form.cleaned_data["title"]
-        # event.slug = form.get_slug()
+        event.slug = form.generate_slug()
 
         event.description = form.cleaned_data["description"]
 
