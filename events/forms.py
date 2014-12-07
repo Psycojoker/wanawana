@@ -14,10 +14,10 @@ class NewEventForm(forms.Form):
     location_address = forms.CharField(required=False)
 
     def generate_admin_id(self):
-        password = generate_random_password(15)
+        password = generate_random_password(30)
 
         while Event.objects.filter(admin_id=password):
-            password = generate_random_password(15)
+            password = generate_random_password(30)
 
         return password
 
