@@ -3,6 +3,7 @@ from django import forms
 
 class NewEventForm(forms.Form):
     title = forms.CharField()
+    slug = forms.SlugField()
     description = forms.CharField()
     admin_email = forms.EmailField(required=False)
     date = forms.DateField(required=False)
