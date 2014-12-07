@@ -1,4 +1,5 @@
 from django import forms
+from django.template.defaultfilters import slugify
 
 from .utils import generate_random_password
 from .models import Event
@@ -20,6 +21,15 @@ class NewEventForm(forms.Form):
             password = generate_random_password(30)
 
         return password
+
+    def generate_slug(self):
+        base_slug = self.cleaned_data["slug"] if self.cleaned_data["slug"] else slugify(self.cleaned_data["title"])
+        slug = base_slug
+
+        while Event.objects.filter(slug=slug).exists():
+            slug = base_slug + "-%s" % generate_random_password(5)
+
+        return slug
 
     # wait for django leaflet
     # location_gps_lat
