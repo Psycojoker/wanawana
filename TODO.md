@@ -7,6 +7,8 @@ User management
 Event management
 ================
 
+* javascript date and time picker
+
 * localisation via leaflet of the event
 * users invitation
 * possibility to require participant emails
