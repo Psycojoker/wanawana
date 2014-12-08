@@ -6,8 +6,13 @@
   %h1 Event administration
   %hr
 
-  .alert.alert-danger
-    %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
+  .row
+      %p
+        %a.btn.btn-primary.btn-lg{href: "{% url 'event_detail' event.slug %}", target: "_blank"}
+          Access event public page
+
+      .alert.alert-danger
+        %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
 
   %form.form{method: "post"}
     -csrf_token
