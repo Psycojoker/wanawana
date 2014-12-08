@@ -9,6 +9,8 @@ Event management
 
 * javascript date and time picker
 
+* if admin email spplied -> send informations by email
+
 * localisation via leaflet of the event
 * users invitation
 * possibility to require participant emails
@@ -22,6 +24,7 @@ Event page
 * comments
 * possibility for an user to not appears in the user list
 * anti spam ?
+* emails reminder
 
 Group
 =====
