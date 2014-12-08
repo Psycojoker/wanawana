@@ -1,0 +1,19 @@
+-extends "base.haml"
+
+-block content
+  %h1= event.title
+  %hr
+
+  %p
+    %b
+      -if event.date
+        =event.date
+      -else
+        No date yet for this event
+      \-
+      -if event.time
+        =event.time
+      -else
+        no hours yet for this event
+
+  %p= event.description
