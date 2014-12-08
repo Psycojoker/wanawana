@@ -16,4 +16,11 @@
       -else
         no hours yet for this event
 
+  %p
+    %i
+      -if event.location_address
+        =event.location_address
+      -else
+        No location yet for this event, don't hesitate to suggest one!
+
   %p= event.description
