@@ -1,26 +1,32 @@
 -extends "base.haml"
 
 -block content
-  %h1= event.title
-  %hr
+  .row
+    .col-md-9
+      %h1= event.title
+      %hr
 
-  %p
-    %b
-      -if event.date
-        =event.date
-      -else
-        No date yet for this event
-      \-
-      -if event.time
-        =event.time
-      -else
-        no hours yet for this event
+      %p
+        %b
+          -if event.date
+            =event.date
+          -else
+            No date yet for this event
+          \-
+          -if event.time
+            =event.time
+          -else
+            no hours yet for this event
 
-  %p
-    %i
-      -if event.location_address
-        =event.location_address
-      -else
-        No location yet for this event, don't hesitate to suggest one!
+      %p
+        %i
+          -if event.location_address
+            =event.location_address
+          -else
+            No location yet for this event, don't hesitate to suggest one!
 
-  %p= event.description
+      %p= event.description
+
+    .col-md-3
+      %h1 Attendies
+      %hr
