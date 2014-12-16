@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'debug_toolbar',
     'django_pdb',
+    'wanawana',
     'users',
     'events',
 )
