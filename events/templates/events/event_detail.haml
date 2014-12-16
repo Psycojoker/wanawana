@@ -30,3 +30,20 @@
     .col-md-3
       %h1 Attendies
       %hr
+
+      %div{style: "margin-right: 0px; margin-left: 0px; border-color: #ddd; border-width: 1px; border-radius: 4px 4px 4px 4px; box-shadow: none; border-style: solid; position: relative; padding: 3px 15px 15px;"}
+        %form.form
+          %h4 Respond to this event
+          .form-group
+            %label{for: "name"} Name:
+            %input.form-control{type: "text"}
+
+          .form-group
+            %label.radio-inline
+              %input{type: "radio", name: "yesnomaybe", value: "yes", checked: "true"} Yes
+            %label.radio-inline
+              %input{type: "radio", name: "yesnomaybe", value: "no"} No
+            %label.radio-inline
+              %input{type: "radio", name: "yesnomaybe", value: "maybe"} Maybe
+
+          %input.btn.btn-primary{type: "submit", value: "Respond"}
