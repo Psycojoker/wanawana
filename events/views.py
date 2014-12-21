@@ -1,10 +1,12 @@
+from uuid import uuid4
+
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import UpdateView
 
 from .forms import NewEventForm, NewAttendyForm
-from .models import Event
+from .models import Event, EventAttending
 
 
 def new_event(request):
@@ -53,9 +55,21 @@ class EventAdminView(UpdateView):
 
 
 def event_view(request, slug):
+    event = get_object_or_404(Event, slug=slug)
+
     form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
 
+    if form.is_valid():
+        EventAttending.objects.create(
+            name=form.cleaned_data["name"],
+            choice=form.cleaned_data["choice"],
+            event=event,
+            uuid=str(uuid4()),
+        )
+
+        return HttpResponseRedirect(reverse("event_detail", args=(event.slug,)))
+
     return render(request, "events/event_detail.haml", {
-        "event": get_object_or_404(Event, slug=slug),
+        "event": event,
         "form": form
     })
