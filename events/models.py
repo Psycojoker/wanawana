@@ -25,3 +25,4 @@ class EventAttending(models.Model):
     choice = models.CharField(max_length=255, choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
     event = models.ForeignKey(Event)
     uuid = models.CharField(max_length=255)
+    answered_at = models.DateTimeField(auto_now_add=True)
