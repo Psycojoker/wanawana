@@ -50,3 +50,11 @@
               %input{type: "radio", name: "choice", value: "maybe"} Maybe
 
           %input.btn.btn-primary{type: "submit", value: "Respond"}
+
+      .panel.panel-default
+        .panel-heading
+          Attending
+        %ul.list-group
+          -for attending in event.eventattending_set.all
+            %li.list-group-item
+              =attending.name
