@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 from django import forms
 from django.template.defaultfilters import slugify
 
@@ -14,10 +16,10 @@ class NewEventForm(forms.Form):
     location_address = forms.CharField(required=False)
 
     def generate_admin_id(self):
-        password = generate_random_password(30)
+        password = str(uuid4())
 
         while Event.objects.filter(admin_id=password).exists():
-            password = generate_random_password(30)
+            password = str(uuid4())
 
         return password
 
