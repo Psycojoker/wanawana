@@ -16,12 +16,12 @@ class NewEventForm(forms.Form):
     location_address = forms.CharField(required=False)
 
     def generate_admin_id(self):
-        password = str(uuid4())
+        admin_id = str(uuid4())
 
-        while Event.objects.filter(admin_id=password).exists():
-            password = str(uuid4())
+        while Event.objects.filter(admin_id=admin_id).exists():
+            admin_id = str(uuid4())
 
-        return password
+        return admin_id
 
     def generate_slug(self):
         base_slug = self.cleaned_data["slug"] if self.cleaned_data["slug"] else slugify(self.cleaned_data["title"])
