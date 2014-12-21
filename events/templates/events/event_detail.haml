@@ -1,5 +1,7 @@
 -extends "base.haml"
 
+-load bootstrap3
+
 -block content
   .row
     .col-md-9
@@ -36,10 +38,10 @@
           -csrf_token
           %h4 Respond to this event
           .form-group
-            %label{for: "name"} Name:
-            %input.form-control{type: "text"}
+            -bootstrap_field form.name
 
           .form-group
+            =form.yesnomaybe.errors
             %label.radio-inline
               %input{type: "radio", name: "yesnomaybe", value: "yes", checked: "true"} Yes
             %label.radio-inline
