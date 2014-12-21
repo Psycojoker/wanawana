@@ -18,3 +18,10 @@ class Event(models.Model):
 
     # location_gps_lat = models.FloatField(null=True, blank=True)
     # location_gps_lon = models.FloatField(null=True, blank=True)
+
+
+class EventAttending(models.Model):
+    name = models.CharField(max_length=255)
+    choice = models.CharField(max_length=255, choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
+    event = models.ForeignKey(Event)
+    uuid = models.CharField(max_length=255)
