@@ -39,4 +39,4 @@ class NewEventForm(forms.Form):
 
 class NewAttendyForm(forms.Form):
     name = forms.CharField()
-    yesnomabey = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
+    choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
