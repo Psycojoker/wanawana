@@ -35,3 +35,8 @@ class NewEventForm(forms.Form):
     # wait for django leaflet
     # location_gps_lat
     # location_gps_lon
+
+
+class NewAttendyForm(forms.Form):
+    name = forms.CharField()
+    yesnomabey = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
