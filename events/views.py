@@ -50,3 +50,9 @@ class EventAdminView(UpdateView):
 
     def get_success_url(self):
         return reverse("event_admin", args=(self.kwargs["admin_id"],))
+
+
+def event_view(request, slug):
+    return render(request, "events/event_detail.haml", {
+        "event": get_object_or_404(Event, slug=slug),
+    })
