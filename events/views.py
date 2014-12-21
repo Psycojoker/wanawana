@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import UpdateView
 
-from .forms import NewEventForm
+from .forms import NewEventForm, NewAttendyForm
 from .models import Event
 
 
@@ -53,6 +53,9 @@ class EventAdminView(UpdateView):
 
 
 def event_view(request, slug):
+    form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
+
     return render(request, "events/event_detail.haml", {
         "event": get_object_or_404(Event, slug=slug),
+        "form": form
     })
