@@ -29,6 +29,36 @@
 
       %p= event.description
 
+      %h2 Commentaires
+      %hr
+
+      .row
+        .col-md-8.col-md-offset-1
+          %div{style: "margin-right: 0px; margin-left: 0px; border-color: #ddd; border-width: 1px; border-radius: 4px 4px 4px 4px; box-shadow: none; border-style: solid; position: relative; padding: 3px 15px 3px;"}
+            %form.form{action: "", method: "post"}
+              -csrf_token
+              %h4 Add a comment
+              .row
+                .col-md-6
+                  .form-group
+                    %label.control-label{for: "comment_name"}
+                      Name
+                    %input#comment_name.form-control{type: "text", required: "", placeholder: "name", name: "name"}
+
+                .col-md-6
+                  .form-group
+                    %label.control-label{for: "comment_email"}
+                      Email
+                    %input#comment_email.form-control{type: "text", required: "", placeholder: "name", name: "email"}
+
+            .form-group
+              %label.control-label{for: "comment_content"}
+                Comment
+              %textarea#comment_content.form-control
+
+            .form-group
+              %input.form-control.btn.btn-primary{type: "submit", value: "Add a comment"}
+
     .col-md-3
       %h1 Attendees
       %hr
