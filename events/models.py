@@ -19,6 +19,9 @@ class Event(models.Model):
     # location_gps_lat = models.FloatField(null=True, blank=True)
     # location_gps_lon = models.FloatField(null=True, blank=True)
 
+    def __unicode__(self):
+        return "%s (%s)" % (self.title, self.slug)
+
 
 class EventAttending(models.Model):
     name = models.CharField(max_length=255)
