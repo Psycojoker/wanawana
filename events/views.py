@@ -54,20 +54,32 @@ class EventAdminView(UpdateView):
         return reverse("event_admin", args=(self.kwargs["admin_id"],))
 
 
+def event_view_user_uuid(request, slug, user_uuid):
+    event = get_object_or_404(Event, slug=slug)
+    get_object_or_404(EventAttending, uuid=user_uuid)
+
+    form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
+
+    return render(request, "events/event_detail.haml", {
+        "event": event,
+        "form": form
+    })
+
+
 def event_view(request, slug):
     event = get_object_or_404(Event, slug=slug)
 
     form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
 
     if form.is_valid():
-        EventAttending.objects.create(
+        event_attending = EventAttending.objects.create(
             name=form.cleaned_data["name"],
             choice=form.cleaned_data["choice"],
             event=event,
             uuid=str(uuid4()),
         )
 
-        return HttpResponseRedirect(reverse("event_detail", args=(event.slug,)))
+        return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))
 
     return render(request, "events/event_detail.haml", {
         "event": event,
