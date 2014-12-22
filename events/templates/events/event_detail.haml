@@ -53,10 +53,26 @@
 
       %br
 
-      .panel.panel-default
+      .panel.panel-success
         .panel-heading
           Attending
         %ul.list-group
-          -for attending in event.eventattending_set.all
+          -for attending in event.yes_attending
+            %li.list-group-item
+              =attending.name
+
+      .panel.panel-warning
+        .panel-heading
+          Maybe attending
+        %ul.list-group
+          -for attending in event.maybe_attending
+            %li.list-group-item
+              =attending.name
+
+      .panel.panel-default
+        .panel-heading
+          Not attending
+        %ul.list-group
+          -for attending in event.no_attending
             %li.list-group-item
               =attending.name

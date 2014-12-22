@@ -19,6 +19,15 @@ class Event(models.Model):
     # location_gps_lat = models.FloatField(null=True, blank=True)
     # location_gps_lon = models.FloatField(null=True, blank=True)
 
+    def yes_attending(self):
+        return self.eventattending_set.filter(choice="yes")
+
+    def maybe_attending(self):
+        return self.eventattending_set.filter(choice="maybe")
+
+    def no_attending(self):
+        return self.eventattending_set.filter(choice="no")
+
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.slug)
 
