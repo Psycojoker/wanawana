@@ -54,20 +54,11 @@ class EventAdminView(UpdateView):
         return reverse("event_admin", args=(self.kwargs["admin_id"],))
 
 
-def event_view_user_uuid(request, slug, user_uuid):
+def event_view(request, slug, user_uuid=None):
     event = get_object_or_404(Event, slug=slug)
-    get_object_or_404(EventAttending, uuid=user_uuid)
 
-    form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
-
-    return render(request, "events/event_detail.haml", {
-        "event": event,
-        "form": form
-    })
-
-
-def event_view(request, slug):
-    event = get_object_or_404(Event, slug=slug)
+    if user_uuid:
+        get_object_or_404(EventAttending, uuid=user_uuid)
 
     form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
 
