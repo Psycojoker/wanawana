@@ -8,6 +8,11 @@
       %h1= event.title
       %hr
 
+      -if event_attending
+        .alert.alert-danger
+          %b Warning:
+          this is your personal page for this event that allows you to modify your answer, don't lose it or you won't be able to do it
+
       %p
         %b
           -if event.date
