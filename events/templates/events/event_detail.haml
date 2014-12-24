@@ -88,29 +88,38 @@
 
       %br
 
-      .panel.panel-success
-        .panel-heading
-          %span.badge{style: "float: right"}= event.yes_attending.count
-          Attending
-        %ul.list-group
-          -for attending in event.yes_attending
-            %li.list-group-item
-              =attending.name
+      -if event.yes_attending.exists
+        .panel.panel-success
+          .panel-heading
+            %span.badge{style: "float: right"}= event.yes_attending.count
+            Attending
+          %ul.list-group
+            -for attending in event.yes_attending
+              %li.list-group-item
+                -if attending.uuid == event_attending.uuid
+                  %span.badge You
+                =attending.name
 
-      .panel.panel-warning
-        .panel-heading
-          %span.badge{style: "float: right"}= event.maybe_attending.count
-          Maybe attending
-        %ul.list-group
-          -for attending in event.maybe_attending
-            %li.list-group-item
-              =attending.name
+      -if event.maybe_attending.exists
+        .panel.panel-warning
+          .panel-heading
+            %span.badge{style: "float: right"}= event.maybe_attending.count
+            Maybe attending
+          %ul.list-group
+            -for attending in event.maybe_attending
+              %li.list-group-item
+                -if attending.uuid == event_attending.uuid
+                  %span.badge You
+                =attending.name
 
-      .panel.panel-default
-        .panel-heading
-          %span.badge{style: "float: right"}= event.no_attending.count
-          Not attending
-        %ul.list-group
-          -for attending in event.no_attending
-            %li.list-group-item
-              =attending.name
+      -if event.no_attending.exists
+        .panel.panel-default
+          .panel-heading
+            %span.badge{style: "float: right"}= event.no_attending.count
+            Not attending
+          %ul.list-group
+            -for attending in event.no_attending
+              %li.list-group-item
+                -if attending.uuid == event_attending.uuid
+                  %span.badge You
+                =attending.name
