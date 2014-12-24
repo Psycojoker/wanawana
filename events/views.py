@@ -57,8 +57,7 @@ class EventAdminView(UpdateView):
 def event_view(request, slug, user_uuid=None):
     event = get_object_or_404(Event, slug=slug)
 
-    if user_uuid:
-        get_object_or_404(EventAttending, uuid=user_uuid)
+    event_attending = get_object_or_404(EventAttending, uuid=user_uuid) if user_uuid else None
 
     form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
 
@@ -74,5 +73,6 @@ def event_view(request, slug, user_uuid=None):
 
     return render(request, "events/event_detail.haml", {
         "event": event,
-        "form": form
+        "form": form,
+        "event_attending": event_attending,
     })
