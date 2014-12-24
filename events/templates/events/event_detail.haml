@@ -75,12 +75,13 @@
 
           .form-group
             =form.choice.errors
-            %label.radio-inline
-              %input{type: "radio", name: "choice", value: "yes", checked: "true"} Yes
-            %label.radio-inline
-              %input{type: "radio", name: "choice", value: "no"} No
-            %label.radio-inline
-              %input{type: "radio", name: "choice", value: "maybe"} Maybe
+            .btn-group.btn-group-justified{data-toggle: "buttons"}
+              %label.btn.btn-default.active
+                %input#yes{type: "radio", name: "choice", value: "yes", checked: "true", autocomplete: "off"} Yes
+              %label.btn.btn-default
+                %input#no{type: "radio", name: "choice", value: "no", autocomplete: "off"} No
+              %label.btn.btn-default
+                %input#maybe{type: "radio", name: "choice", value: "maybe", autocomplete: "off"} Maybe
 
           .form-group
             %input.form-control.btn.btn-primary{type: "submit", value: "{% if event_attending %}Modify{% else %}Respond{% endif %}"}
