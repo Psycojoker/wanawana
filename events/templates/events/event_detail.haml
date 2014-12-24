@@ -76,7 +76,7 @@
           .form-group
             =form.choice.errors
             .btn-group.btn-group-justified{data-toggle: "buttons"}
-              %label{class: "btn btn-default {% if form.choice.data == 'yes' %}active{% endif %}"}
+              %label{class: "btn btn-default {% if form.choice.data == 'yes' or not event_attending %}active{% endif %}"}
                 %input#yes{type: "radio", name: "choice", value: "yes", checked: "true", autocomplete: "off"} Yes
               %label{class: "btn btn-default {% if form.choice.data == 'no' %}active{% endif %}"}
                 %input#no{type: "radio", name: "choice", value: "no", autocomplete: "off"} No
