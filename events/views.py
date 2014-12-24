@@ -59,9 +59,17 @@ def event_view(request, slug, user_uuid=None):
 
     event_attending = get_object_or_404(EventAttending, uuid=user_uuid) if user_uuid else None
 
-    form = NewAttendyForm(request.POST) if request.method == "POST" else NewAttendyForm()
+    if request.method == "POST":
+        form = NewAttendyForm(request.POST)
+    elif event_attending:
+        form = NewAttendyForm({
+            "name": event_attending.name,
+            "choice": event_attending.choice,
+        })
+    else:
+        form = NewAttendyForm()
 
-    if form.is_valid():
+    if request.method == "POST" and form.is_valid():
         event_attending = EventAttending.objects.create(
             name=form.cleaned_data["name"],
             choice=form.cleaned_data["choice"],
