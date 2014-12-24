@@ -83,7 +83,7 @@
               %input{type: "radio", name: "choice", value: "maybe"} Maybe
 
           .form-group
-            %input.form-control.btn.btn-primary{type: "submit", value: "Respond"}
+            %input.form-control.btn.btn-primary{type: "submit", value: "{% if event_attending %}Modify{% else %}Respond{% endif %}"}
 
       %br
 
