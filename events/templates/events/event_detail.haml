@@ -88,6 +88,11 @@
 
       %br
 
+      -if not event.yes_attending.exists and not event.maybe_attending.exists and not event.no_attending.exists
+        %p{style: "text-align: center"}
+          %i
+            No one has answer to this event yet.
+
       -if event.yes_attending.exists
         .panel.panel-success
           .panel-heading
