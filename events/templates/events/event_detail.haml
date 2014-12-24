@@ -66,7 +66,10 @@
       %div{style: "margin-right: 0px; margin-left: 0px; border-color: #ddd; border-width: 1px; border-radius: 4px 4px 4px 4px; box-shadow: none; border-style: solid; position: relative; padding: 3px 15px 0px;"}
         %form.form{action: "", method: "post"}
           -csrf_token
-          %h4 Respond to this event
+          -if event_attending
+            %h4 Update my respond
+          -else
+            %h4 Respond to this event
           .form-group
             -bootstrap_field form.name
 
