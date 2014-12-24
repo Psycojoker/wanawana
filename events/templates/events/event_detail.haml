@@ -76,11 +76,11 @@
           .form-group
             =form.choice.errors
             .btn-group.btn-group-justified{data-toggle: "buttons"}
-              %label.btn.btn-default.active
+              %label{class: "btn btn-default {% if form.choice.data == 'yes' %}active{% endif %}"}
                 %input#yes{type: "radio", name: "choice", value: "yes", checked: "true", autocomplete: "off"} Yes
-              %label.btn.btn-default
+              %label{class: "btn btn-default {% if form.choice.data == 'no' %}active{% endif %}"}
                 %input#no{type: "radio", name: "choice", value: "no", autocomplete: "off"} No
-              %label.btn.btn-default
+              %label{class: "btn btn-default {% if form.choice.data == 'maybe' %}active{% endif %}"}
                 %input#maybe{type: "radio", name: "choice", value: "maybe", autocomplete: "off"} Maybe
 
           .form-group
