@@ -43,7 +43,7 @@
 
       .row
         .col-md-8.col-md-offset-1
-          %div{style: "margin-right: 0px; margin-left: 0px; border-color: #ddd; border-width: 1px; border-radius: 4px 4px 4px 4px; box-shadow: none; border-style: solid; position: relative; padding: 3px 15px 3px;"}
+          .form-box
             %form.form{action: "", method: "post"}
               -csrf_token
               %h4 Add a comment
@@ -72,7 +72,7 @@
       %h1 Attendees
       %hr
 
-      %div{style: "margin-right: 0px; margin-left: 0px; border-color: #ddd; border-width: 1px; border-radius: 4px 4px 4px 4px; box-shadow: none; border-style: solid; position: relative; padding: 3px 15px 0px;"}
+      .form-box
         %form.form{action: "", method: "post"}
           -csrf_token
           -if event_attending

@@ -1,0 +1,11 @@
+.form-box {
+    margin-right: 0px;
+    margin-left: 0px;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: none;
+    border-style: solid;
+    position: relative;
+    padding: 3px 15px 3px;
+}
