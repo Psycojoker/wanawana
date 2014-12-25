@@ -2,6 +2,7 @@
 
 -block bootstrap3_extra_head
   %link{href: "{{ STATIC_URL }}css/main.css", rel: "stylesheet"}
+  %link{href: "//www.fuelcdn.com/fuelux/3.4.0/css/fuelux.min.css", rel: "stylesheet"}
   -block head
 
 -block bootstrap3_title
@@ -10,3 +11,7 @@
 -block bootstrap3_content
   .container
     -block content
+
+-block bootstrap3_extra_script
+  %script{src: "//www.fuelcdn.com/fuelux/3.4.0/js/fuelux.min.js"}
+  -block javascript
