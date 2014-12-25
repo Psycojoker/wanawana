@@ -16,8 +16,25 @@
 
   %form.form{method: "post"}
     -csrf_token
-    -bootstrap_form form
-    {% buttons %}
-      %button.btn.btn-primary{type: "submit"}
+
+    .row
+      .form-group
+        .col-md-6
+          -bootstrap_field form.title
+        .col-md-6
+          .form-group
+            %label.control-label{for: "id_title"}
+              Slug
+            %input.form-control{id: "id_title", maxlength: "255", name: "title", placeholder: "Title", title: "", type: "text", value: "{{ event.slug }}", disabled: "true"}
+
+    .form-group
+      -bootstrap_field form.description
+
+    -include "scheduler.haml"
+
+    .form-group
+      -bootstrap_field form.location_address
+
+    .form-group
+      %button.btn.btn-primary.form-control{type: "submit"}
         Modify
-    {% endbuttons %}
