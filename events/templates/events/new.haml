@@ -8,8 +8,27 @@
 
   %form.form{method: "post"}
     -csrf_token
-    -bootstrap_form form
-    {% buttons %}
-      %button.btn.btn-primary{type: "submit"}
+
+    .row
+      .form-group
+        .col-md-6
+          -bootstrap_field form.title
+        .col-md-6
+          -bootstrap_field form.slug
+
+    .form-group
+      -bootstrap_field form.description
+
+    .row
+      .form-group
+        .col-md-6
+          -bootstrap_field form.date
+        .col-md-6
+          -bootstrap_field form.time
+
+    .form-group
+      -bootstrap_field form.location_address
+
+    .form-group
+      %button.btn.btn-primary.form-control{type: "submit"}
         Create
-    {% endbuttons %}
