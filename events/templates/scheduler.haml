@@ -1,0 +1,308 @@
+#myScheduler.scheduler.row{data-initialize: "scheduler", "style": "margin-bottom: 15px"}
+  .form-group.start-datetime
+    .col-md-6
+      %label.control-label.scheduler-label{for: "myStartDate"}
+        Date
+      .datepicker.start-date
+        .input-group
+          %input#myStartDate.form-control{"type": "text"}/
+          .input-group-btn
+            %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
+              %span.glyphicon.glyphicon-calendar
+              %span.sr-only Toggle Calendar
+            .dropdown-menu.dropdown-menu-right.datepicker-calendar-wrapper{"role": "menu"}
+              .datepicker-calendar
+                .datepicker-calendar-header
+                  %button.prev
+                    %span.glyphicon.glyphicon-chevron-left
+                    %span.sr-only Previous Month
+                  %button.next
+                    %span.glyphicon.glyphicon-chevron-right
+                    %span.sr-only Next Month
+                  %button.title
+                    %span.month
+                      %span{"data-month": "0"} January
+                      %span{"data-month": "1"} February
+                      %span{"data-month": "2"} March
+                      %span{"data-month": "3"} April
+                      %span{"data-month": "4"} May
+                      %span{"data-month": "5"} June
+                      %span{"data-month": "6"} July
+                      %span{"data-month": "7"} August
+                      %span{"data-month": "8"} September
+                      %span{"data-month": "9"} October
+                      %span{"data-month": "10"} November
+                      %span{"data-month": "11"} December
+                    %span.year
+                %table.datepicker-calendar-days
+                  %thead
+                    %tr
+                      %th Su
+                      %th Mo
+                      %th Tu
+                      %th We
+                      %th Th
+                      %th Fr
+                      %th Sa
+                  %tbody
+                .datepicker-calendar-footer
+                  %button.datepicker-today Today
+              .datepicker-wheels{"aria-hidden": "true"}
+                .datepicker-wheels-month
+                  %h2.header Month
+                  %ul
+                    %li{"data-month": "0"}
+                      %button Jan
+                    %li{"data-month": "1"}
+                      %button Feb
+                    %li{"data-month": "2"}
+                      %button Mar
+                    %li{"data-month": "3"}
+                      %button Apr
+                    %li{"data-month": "4"}
+                      %button May
+                    %li{"data-month": "5"}
+                      %button Jun
+                    %li{"data-month": "6"}
+                      %button Jul
+                    %li{"data-month": "7"}
+                      %button Aug
+                    %li{"data-month": "8"}
+                      %button Sep
+                    %li{"data-month": "9"}
+                      %button Oct
+                    %li{"data-month": "10"}
+                      %button Nov
+                    %li{"data-month": "11"}
+                      %button Dec
+                .datepicker-wheels-year
+                  %h2.header Year
+                  %ul
+                .datepicker-wheels-footer.clearfix
+                  %button.btn.datepicker-wheels-back
+                    %span.glyphicon.glyphicon-arrow-left
+                    %span.sr-only Return to Calendar
+                  %button.btn.datepicker-wheels-select{"type": "button"}
+                    Select
+                    %span.sr-only Month and Year
+    .col-md-6
+      %label{"for": "MyStartTime"} Start Time
+      .input-group.combobox.start-time
+        %input#myStartTime.form-control{"type": "text"}/
+        .input-group-btn
+          %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
+            %span.caret
+            %span.sr-only Toggle Dropdown
+          %ul.dropdown-menu.dropdown-menu-right{"role": "menu"}
+            %li
+              %a{"href": "#"} 0:00 AM
+            %li
+              %a{"href": "#"} 0:30 AM
+            %li
+              %a{"href": "#"} 1:00 AM
+            %li
+              %a{"href": "#"} 1:30 AM
+            %li
+              %a{"href": "#"} 2:00 AM
+            %li
+              %a{"href": "#"} 2:30 AM
+            %li
+              %a{"href": "#"} 3:00 AM
+            %li
+              %a{"href": "#"} 3:30 AM
+            %li
+              %a{"href": "#"} 4:00 AM
+            %li
+              %a{"href": "#"} 4:30 AM
+            %li
+              %a{"href": "#"} 5:00 AM
+            %li
+              %a{"href": "#"} 5:30 AM
+            %li
+              %a{"href": "#"} 6:00 AM
+            %li
+              %a{"href": "#"} 6:30 AM
+            %li
+              %a{"href": "#"} 7:00 AM
+            %li
+              %a{"href": "#"} 7:30 AM
+            %li
+              %a{"href": "#"} 8:00 AM
+            %li
+              %a{"href": "#"} 8:30 AM
+            %li
+              %a{"href": "#"} 9:00 AM
+            %li
+              %a{"href": "#"} 9:30 AM
+            %li
+              %a{"href": "#"} 10:00 AM
+            %li
+              %a{"href": "#"} 10:30 AM
+            %li
+              %a{"href": "#"} 11:00 AM
+            %li
+              %a{"href": "#"} 11:30 AM
+            %li
+              %a{"href": "#"} 12:00 PM
+            %li
+              %a{"href": "#"} 12:30 PM
+            %li
+              %a{"href": "#"} 1:00 PM
+            %li
+              %a{"href": "#"} 1:30 PM
+            %li
+              %a{"href": "#"} 2:00 PM
+            %li
+              %a{"href": "#"} 2:30 PM
+            %li
+              %a{"href": "#"} 3:00 PM
+            %li
+              %a{"href": "#"} 3:30 PM
+            %li
+              %a{"href": "#"} 4:00 PM
+            %li
+              %a{"href": "#"} 4:30 PM
+            %li
+              %a{"href": "#"} 5:00 PM
+            %li
+              %a{"href": "#"} 5:30 PM
+            %li
+              %a{"href": "#"} 6:00 PM
+            %li
+              %a{"href": "#"} 6:30 PM
+            %li
+              %a{"href": "#"} 7:00 PM
+            %li
+              %a{"href": "#"} 7:30 PM
+            %li
+              %a{"href": "#"} 8:00 PM
+            %li
+              %a{"href": "#"} 8:30 PM
+            %li
+              %a{"href": "#"} 9:00 PM
+            %li
+              %a{"href": "#"} 9:30 PM
+            %li
+              %a{"href": "#"} 10:00 PM
+            %li
+              %a{"href": "#"} 10:30 PM
+            %li
+              %a{"href": "#"} 11:00 PM
+            %li
+              %a{"href": "#"} 11:30 PM
+
+
+
+
+    .form-group.repeat-end.hide{"aria-hidden": "true"}
+      %label.col-sm-2.control-label.scheduler-label End
+      .col-sm-10.row
+        .col-sm-3.form-group
+          .btn-group.selectlist.end-options.pull-left{"data-resize": "auto"}
+            %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
+              %span.selected-label Never
+              %span.caret
+              %span.sr-only Never
+            %ul.dropdown-menu{"role": "menu"}
+              %li{"data-value": "never"}
+                %a{"href": "#"} Never
+              %li{"data-value": "after"}
+                %a{"href": "#"} After
+              %li{"data-value": "date"}
+                %a{"href": "#"} On date
+            %input.hidden.hidden-field{"aria-hidden": "true", "name": "EndSelectlist", "readonly": "readonly", "type": "text"}
+        .col-sm-6.form-group.end-option-panel.end-after-panel.pull-left.hide{"aria-hidden": "true"}
+          .spinbox.digits-3.end-after
+            %label#MyEndAfter.sr-only End After
+            %input.form-control.input-mini.spinbox-input{"aria-labelledby": "MyEndAfter", "type": "text"}
+              .spinbox-buttons.btn-group.btn-group-vertical
+                %button.btn.btn-default.spinbox-up.btn-xs{"type": "button"}
+                  %span.glyphicon.glyphicon-chevron-up
+                  %span.sr-only Increase
+                %button.btn.btn-default.spinbox-down.btn-xs{"type": "button"}
+                  %span.glyphicon.glyphicon-chevron-down
+                  %span.sr-only Decrease
+          .inline-form-text.end-after-text occurance(s)
+        .col-sm-8.form-group.end-option-panel.end-on-date-panel.pull-left.hide{"aria-hidden": "true"}
+          .datepicker.input-group.end-on-date
+            .input-group
+              %input.form-control{"type": "text"}/
+              .input-group-btn
+                %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
+                  %span.glyphicon.glyphicon-calendar
+                  %span.sr-only Toggle Calendar
+                .dropdown-menu.dropdown-menu-right.datepicker-calendar-wrapper{"role": "menu"}
+                  .datepicker-calendar
+                    .datepicker-calendar-header
+                      %button.prev
+                        %span.glyphicon.glyphicon-chevron-left
+                        %span.sr-only Previous Month
+                      %button.next
+                        %span.glyphicon.glyphicon-chevron-right
+                        %span.sr-only Next Month
+                      %button.title
+                        %span.month
+                          %span{"data-month": "0"} January
+                          %span{"data-month": "1"} February
+                          %span{"data-month": "2"} March
+                          %span{"data-month": "3"} April
+                          %span{"data-month": "4"} May
+                          %span{"data-month": "5"} June
+                          %span{"data-month": "6"} July
+                          %span{"data-month": "7"} August
+                          %span{"data-month": "8"} September
+                          %span{"data-month": "9"} October
+                          %span{"data-month": "10"} November
+                          %span{"data-month": "11"} December
+                        %span.year
+                    %table.datepicker-calendar-days
+                      %thead
+                        %tr
+                          %th Su
+                          %th Mo
+                          %th Tu
+                          %th We
+                          %th Th
+                          %th Fr
+                          %th Sa
+                      %tbody
+                    .datepicker-calendar-footer
+                      %button.datepicker-today Today
+                  .datepicker-wheels{"aria-hidden": "true"}
+                    .datepicker-wheels-month
+                      %h2.header Month
+                      %ul
+                        %li{"data-month": "0"}
+                          %button Jan
+                        %li{"data-month": "1"}
+                          %button Feb
+                        %li{"data-month": "2"}
+                          %button Mar
+                        %li{"data-month": "3"}
+                          %button Apr
+                        %li{"data-month": "4"}
+                          %button May
+                        %li{"data-month": "5"}
+                          %button Jun
+                        %li{"data-month": "6"}
+                          %button Jul
+                        %li{"data-month": "7"}
+                          %button Aug
+                        %li{"data-month": "8"}
+                          %button Sep
+                        %li{"data-month": "9"}
+                          %button Oct
+                        %li{"data-month": "10"}
+                          %button Nov
+                        %li{"data-month": "11"}
+                          %button Dec
+                    .datepicker-wheels-year
+                      %h2.header Year
+                      %ul
+                    .datepicker-wheels-footer.clearfix
+                      %button.btn.datepicker-wheels-back
+                        %span.glyphicon.glyphicon-arrow-left
+                        %span.sr-only Return to Calendar
+                      %button.btn.datepicker-wheels-select{"type": "button"}
+                        Select
+                        %span.sr-only Month and Year
