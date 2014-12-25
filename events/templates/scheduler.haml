@@ -5,7 +5,7 @@
         Date
       .datepicker.start-date
         .input-group
-          %input#myStartDate.form-control{"type": "text"}/
+          %input#myStartDate.form-control{"type": "text", name: "date"}/
           .input-group-btn
             %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
               %span.glyphicon.glyphicon-calendar
@@ -88,7 +88,7 @@
     .col-md-6
       %label{"for": "MyStartTime"} Start Time
       .input-group.combobox.start-time
-        %input#myStartTime.form-control{"type": "text"}/
+        %input#myStartTime.form-control{type: "text", name: "time"}
         .input-group-btn
           %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
             %span.caret
