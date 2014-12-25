@@ -1,5 +1,9 @@
 -extends "bootstrap3/bootstrap3.html"
 
+-block bootstrap3_extra_head
+  %link{href: "{{ STATIC_URL }}css/main.css", rel: "stylesheet"}
+  -block head
+
 -block bootstrap3_title
   WanaWana meet?
 
