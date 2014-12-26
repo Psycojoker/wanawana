@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 
+from wanawana.utils import get_base_url
+
 from .forms import EventForm, EventAttendyForm, CommentForm
 from .models import Event, EventAttending, Comment
 
@@ -31,7 +33,7 @@ def new_event(request):
 
     return render(request, "events/new.haml", {
         "form": form,
-        "current_base_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + "/",
+        "current_base_url": request.META["wsgi.url_scheme"] + "://" + get_base_url(request) + "/",
     })
 
 
@@ -71,8 +73,8 @@ def event_admin(request, admin_id):
     return render(request, "events/event_form.haml", {
         "form": form,
         "event": event,
-        "current_base_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + "/",
-        "current_page_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + request.META["PATH_INFO"],
+        "current_base_url": request.META["wsgi.url_scheme"] + "://" + get_base_url(request) + "/",
+        "current_page_url": request.META["wsgi.url_scheme"] + "://" + get_base_url(request) + request.META["PATH_INFO"],
     })
 
 
@@ -127,5 +129,5 @@ def event_view(request, slug, user_uuid=None):
         "form": form,
         "comment_form": comment_form,
         "event_attending": event_attending,
-        "current_page_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + request.META["PATH_INFO"],
+        "current_page_url": request.META["wsgi.url_scheme"] + "://" + get_base_url(request) + request.META["PATH_INFO"],
     })
