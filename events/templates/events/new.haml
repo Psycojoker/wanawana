@@ -15,7 +15,11 @@
           .col-md-6
             -bootstrap_field form.title
           .col-md-6
-            -bootstrap_field form.slug
+            .form-group
+              %label.control-label{for: "id_slug"} Public url
+              .input-group
+                .input-group-addon= current_base_url
+                %input#id_slug.form-control{name: "slug", placeholder: "Public url", title: "", type: "text"}
 
       .form-group
         -bootstrap_field form.description

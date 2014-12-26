@@ -31,6 +31,7 @@ def new_event(request):
 
     return render(request, "events/new.haml", {
         "form": form,
+        "current_base_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + "/",
     })
 
 
