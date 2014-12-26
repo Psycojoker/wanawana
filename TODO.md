@@ -1,3 +1,8 @@
+Feedback
+========
+
+* users don't know what is a slug -> explain it + autofill it in js, call it "public url"
+
 User management
 ===============
 
