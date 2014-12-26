@@ -11,7 +11,7 @@ class NewEventForm(forms.Form):
     title = forms.CharField()
     slug = forms.SlugField(required=False)
     description = forms.CharField(required=False, widget=forms.Textarea)
-    date = forms.DateField(required=False, widget=forms.DateInput)
+    date = forms.DateField(required=False, widget=forms.DateInput, input_formats=['%d/%m/%Y'])
     time = forms.TimeField(required=False, widget=forms.TimeInput)
     location_address = forms.CharField(required=False)
 
