@@ -38,3 +38,10 @@ class EventAttending(models.Model):
     event = models.ForeignKey(Event)
     uuid = models.CharField(max_length=255)
     answered_at = models.DateTimeField(auto_now_add=True)
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=255)
+    content = models.TextField()
+    event = models.ForeignKey(Event)
+    posted_at = models.DateTimeField(auto_now_add=True)
