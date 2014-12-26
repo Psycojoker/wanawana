@@ -124,4 +124,5 @@ def event_view(request, slug, user_uuid=None):
         "form": form,
         "comment_form": comment_form,
         "event_attending": event_attending,
+        "current_page_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + request.META["PATH_INFO"],
     })

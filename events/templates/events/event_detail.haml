@@ -11,7 +11,8 @@
       -if event_attending
         .alert.alert-danger
           %b Warning:
-          this is your personal page for this event that allows you to modify your answer, don't lose it or you won't be able to do it
+          this page has your personal id in it : don't loose the adress or you won't be able to change your answer in the future!
+          %a{href: "{{ current_page_url }}"}= current_page_url
 
       %p
         %b
