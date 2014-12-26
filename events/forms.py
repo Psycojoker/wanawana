@@ -7,7 +7,7 @@ from .utils import generate_random_password
 from .models import Event
 
 
-class NewEventForm(forms.Form):
+class EventForm(forms.Form):
     title = forms.CharField()
     slug = forms.SlugField(required=False)
     description = forms.CharField(required=False, widget=forms.Textarea)
@@ -37,6 +37,6 @@ class NewEventForm(forms.Form):
     # location_gps_lon
 
 
-class NewAttendyForm(forms.Form):
+class EventAttendyForm(forms.Form):
     name = forms.CharField()
     choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))

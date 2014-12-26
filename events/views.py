@@ -4,12 +4,12 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 
-from .forms import NewEventForm, NewAttendyForm
+from .forms import EventForm, EventAttendyForm
 from .models import Event, EventAttending
 
 
 def new_event(request):
-    form = NewEventForm(request.POST) if request.method == "POST" else NewEventForm()
+    form = EventForm(request.POST) if request.method == "POST" else EventForm()
 
     if request.method == "POST" and form.is_valid():
         event = Event()
@@ -38,9 +38,9 @@ def event_admin(request, admin_id):
     event = get_object_or_404(Event, admin_id=admin_id)
 
     if request.method == "POST":
-        form = NewEventForm(request.POST)
+        form = EventForm(request.POST)
     else:
-        form = NewEventForm({
+        form = EventForm({
             "title": event.title,
             "description": event.description,
             "date": event.date,
@@ -74,14 +74,14 @@ def event_view(request, slug, user_uuid=None):
     event_attending = get_object_or_404(EventAttending, uuid=user_uuid) if user_uuid else None
 
     if request.method == "POST":
-        form = NewAttendyForm(request.POST)
+        form = EventAttendyForm(request.POST)
     elif event_attending:
-        form = NewAttendyForm({
+        form = EventAttendyForm({
             "name": event_attending.name,
             "choice": event_attending.choice,
         })
     else:
-        form = NewAttendyForm()
+        form = EventAttendyForm()
 
     if request.method == "POST" and form.is_valid():
         if event_attending:
