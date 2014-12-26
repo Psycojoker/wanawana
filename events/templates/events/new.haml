@@ -16,10 +16,10 @@
             -bootstrap_field form.title
           .col-md-6
             .form-group
-              %label.control-label{for: "id_slug"} Public url
+              %label.control-label{for: "id_slug"} Public url (optional)
               .input-group
                 .input-group-addon= current_base_url
-                %input#id_slug.form-control{name: "slug", placeholder: "Public url", title: "", type: "text"}
+                %input#id_slug.form-control{name: "slug", placeholder: "(will be generated from title if empty)", title: "", type: "text"}
 
       .form-group
         -bootstrap_field form.description

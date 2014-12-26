@@ -2,7 +2,7 @@
   .start-datetime
     .form-group.col-md-6{class: "{% if form.date.errors %}has-error{% elif form.data and form.date %}has-success{% endif %}"}
       %label.control-label.scheduler-label{for: "myStartDate"}
-        Date
+        Date (optional)
       .datepicker.start-date
         .input-group
           %input#myStartDate.form-control{"type": "text", name: "date"}/
@@ -86,7 +86,7 @@
                     Select
                     %span.sr-only Month and Year
     .form-group.col-md-6{class: "{% if form.time.errors %}has-error{% elif form.data and form.time %}has-success{% endif %}"}
-      %label.control-label{"for": "MyStartTime"} Start Time
+      %label.control-label{"for": "MyStartTime"} Start Time (optional)
       .input-group.combobox.start-time
         %input#myStartTime.form-control{type: "text", name: "time"}
         .input-group-btn
