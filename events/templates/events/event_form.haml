@@ -26,7 +26,7 @@
             .form-group
               %label.control-label{for: "id_title"}
                 Slug
-              %input.form-control{id: "id_title", maxlength: "255", name: "title", placeholder: "Title", title: "", type: "text", value: "{{ event.slug }}", disabled: "true"}
+              %input.form-control{id: "id_title", maxlength: "255", name: "title", placeholder: "Title", title: "", type: "text", value: "{{ event.slug }}", readonly: "true"}
 
       .form-group
         -bootstrap_field form.description
