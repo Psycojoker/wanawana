@@ -9,7 +9,7 @@ from .models import Event
 
 class EventForm(forms.Form):
     title = forms.CharField()
-    slug = forms.SlugField(required=False)
+    slug = forms.SlugField(required=False, label="Public url")
     description = forms.CharField(required=False, widget=forms.Textarea)
     date = forms.DateField(required=False, widget=forms.DateInput, input_formats=['%d/%m/%Y'])
     time = forms.TimeField(required=False, widget=forms.TimeInput)
