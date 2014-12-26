@@ -71,6 +71,7 @@ def event_admin(request, admin_id):
     return render(request, "events/event_form.haml", {
         "form": form,
         "event": event,
+        "current_base_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + "/",
     })
 
 
