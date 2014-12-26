@@ -7,19 +7,19 @@
         .input-group
           %input#myStartDate.form-control{"type": "text", name: "date"}/
           .input-group-btn
-            %button.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
+            %a.btn.btn-default.dropdown-toggle{"data-toggle": "dropdown", "type": "button"}
               %span.glyphicon.glyphicon-calendar
               %span.sr-only Toggle Calendar
             .dropdown-menu.dropdown-menu-right.datepicker-calendar-wrapper{"role": "menu"}
               .datepicker-calendar
                 .datepicker-calendar-header
-                  %button.prev
+                  %a.prev
                     %span.glyphicon.glyphicon-chevron-left
                     %span.sr-only Previous Month
-                  %button.next
+                  %a.next
                     %span.glyphicon.glyphicon-chevron-right
                     %span.sr-only Next Month
-                  %button.title
+                  %a.title
                     %span.month
                       %span{"data-month": "0"} January
                       %span{"data-month": "1"} February
@@ -46,43 +46,43 @@
                       %th Sa
                   %tbody
                 .datepicker-calendar-footer
-                  %button.datepicker-today Today
+                  %a.datepicker-today Today
               .datepicker-wheels{"aria-hidden": "true"}
                 .datepicker-wheels-month
                   %h2.header Month
                   %ul
                     %li{"data-month": "0"}
-                      %button Jan
+                      %a Jan
                     %li{"data-month": "1"}
-                      %button Feb
+                      %a Feb
                     %li{"data-month": "2"}
-                      %button Mar
+                      %a Mar
                     %li{"data-month": "3"}
-                      %button Apr
+                      %a Apr
                     %li{"data-month": "4"}
-                      %button May
+                      %a May
                     %li{"data-month": "5"}
-                      %button Jun
+                      %a Jun
                     %li{"data-month": "6"}
-                      %button Jul
+                      %a Jul
                     %li{"data-month": "7"}
-                      %button Aug
+                      %a Aug
                     %li{"data-month": "8"}
-                      %button Sep
+                      %a Sep
                     %li{"data-month": "9"}
-                      %button Oct
+                      %a Oct
                     %li{"data-month": "10"}
-                      %button Nov
+                      %a Nov
                     %li{"data-month": "11"}
-                      %button Dec
+                      %a Dec
                 .datepicker-wheels-year
                   %h2.header Year
                   %ul
                 .datepicker-wheels-footer.clearfix
-                  %button.btn.datepicker-wheels-back
+                  %a.btn.datepicker-wheels-back
                     %span.glyphicon.glyphicon-arrow-left
                     %span.sr-only Return to Calendar
-                  %button.btn.datepicker-wheels-select{"type": "button"}
+                  %a.btn.datepicker-wheels-select{"type": "button"}
                     Select
                     %span.sr-only Month and Year
     .col-md-6
