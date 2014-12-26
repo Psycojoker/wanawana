@@ -26,8 +26,8 @@
           .col-md-6
             .form-group
               %label.control-label{for: "id_slug"}
-                Public url (optional)
-              %input.form-control{id: "id_slug", maxlength: "255", name: "slug", placeholder: "slug", title: "", type: "text", value: "{{ current_base_url }}{{ event.slug }}/", readonly: "true"}
+                Public url
+              %input.form-control{placeholder: "slug", title: "", type: "text", value: "{{ current_base_url }}{{ event.slug }}/", readonly: "true"}
 
       .form-group
         -bootstrap_field form.description
