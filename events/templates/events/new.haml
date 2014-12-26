@@ -32,6 +32,6 @@
 -block javascript
   :javascript
     $(function() {
-      $("#myStartDate").val("");
-      $("#myStartTime").val("");
+      $("#myStartDate").val("{% if form.date.data %}{{ form.date.data }}{% endif %}");
+      $("#myStartTime").val("{% if form.time.data %}{{ form.time.data }}{% endif %}");
     });
