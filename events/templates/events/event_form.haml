@@ -43,6 +43,6 @@
 -block javascript
   :javascript
     $(function() {
-      $("#myStartDate").val("{% if event.date %}{{ event.date|date:'d/m/Y' }}{% endif %}")
-      $("#myStartTime").val("{% if event.time %}{{ event.time|time:'G:i' }}{% endif %}")
+      $("#myStartDate").val("{% if form.date.data %}{{ form.date.data }}{% elif event.date %}{{ event.date|date:'d/m/Y' }}{% endif %}")
+      $("#myStartTime").val("{% if form.time.data %}{{ form.time.data }}{% elif event.time %}{{ event.time|time:'G:i' }}{% endif %}")
     })
