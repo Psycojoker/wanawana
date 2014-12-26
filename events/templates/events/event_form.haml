@@ -13,7 +13,8 @@
           Access event public page
 
       .alert.alert-danger
-        %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere.
+        %b Do not lose this URL! This is your only way to edit this event informations. Bookmark it or write it somewhere:
+        %a{href: "{{ current_page_url }}"}= current_page_url
 
     %form.form{method: "post"}
       -csrf_token

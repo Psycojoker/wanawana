@@ -72,6 +72,7 @@ def event_admin(request, admin_id):
         "form": form,
         "event": event,
         "current_base_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + "/",
+        "current_page_url": request.META["wsgi.url_scheme"] + "://" + request.META["SERVER_NAME"] + request.META["PATH_INFO"],
     })
 
 
