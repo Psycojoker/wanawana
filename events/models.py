@@ -36,7 +36,7 @@ class EventAttending(models.Model):
     name = models.CharField(max_length=255)
     choice = models.CharField(max_length=255, choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
     event = models.ForeignKey(Event)
-    uuid = models.CharField(max_length=255)
+    uuid = models.CharField(max_length=255, db_index=True)
     answered_at = models.DateTimeField(auto_now_add=True)
 
 
