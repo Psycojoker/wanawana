@@ -35,6 +35,11 @@ def new_event(request):
 
 
 def event_admin(request, admin_id):
+    def remove_first_zero(time):
+        if time.startswith("0"):
+            return time[1:]
+        return time
+
     event = get_object_or_404(Event, admin_id=admin_id)
 
     if request.method == "POST":
@@ -43,8 +48,8 @@ def event_admin(request, admin_id):
         form = EventForm({
             "title": event.title,
             "description": event.description,
-            "date": event.date,
-            "time": event.time,
+            "date": event.date.strftime("%d/%m/%Y"),
+            "time": remove_first_zero(event.time.strftime("%H:%M")),
             "location_address": event.location_address,
         })
 
