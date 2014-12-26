@@ -40,3 +40,8 @@ class EventForm(forms.Form):
 class EventAttendyForm(forms.Form):
     name = forms.CharField()
     choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
+
+
+class CommentForm(forms.Form):
+    comment_name = forms.CharField()
+    comment_content = forms.CharField()
