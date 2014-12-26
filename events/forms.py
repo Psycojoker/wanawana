@@ -15,6 +15,12 @@ class EventForm(forms.Form):
     time = forms.TimeField(required=False, widget=forms.TimeInput)
     location_address = forms.CharField(required=False, label="Location address (optional)")
 
+    def clean_title(self):
+        if len(self.cleaned_data["title"].strip()) == 0:
+            raise forms.ValidationError("title can't be an empty string")
+
+        return self.cleaned_data["title"]
+
     def generate_admin_id(self):
         admin_id = str(uuid4())
 
@@ -41,7 +47,19 @@ class EventAttendyForm(forms.Form):
     name = forms.CharField()
     choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
 
+    def clean_name(self):
+        if len(self.cleaned_data["name"].strip()) == 0:
+            raise forms.ValidationError("name can't be an empty string")
+
+        return self.cleaned_data["name"]
+
 
 class CommentForm(forms.Form):
     comment_name = forms.CharField()
     comment_content = forms.CharField()
+
+    def clean_comment_name(self):
+        if len(self.cleaned_data["comment_name"].strip()) == 0:
+            raise forms.ValidationError("name can't be an empty string")
+
+        return self.cleaned_data["comment_name"]
