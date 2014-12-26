@@ -761,21 +761,7 @@
 			},
 
 			inputBlurred: function( e ) {
-				var inputVal = this.$input.val();
-				var date;
-				if ( inputVal !== this.inputValue ) {
-					date = this.setDate( inputVal );
-					if ( date === null ) {
-						this.$element.trigger( 'inputParsingFailed.fu.datepicker', inputVal );
-					} else if ( date === false ) {
-						this.$element.trigger( 'inputRestrictedDate.fu.datepicker', date );
-					} else {
-						this.$element.trigger( 'changed.fu.datepicker', date );
-					}
-				}
-				if ( !this.preventBlurHide ) {
-					this.$element.find( '.input-group-btn' ).removeClass( 'open' );
-				}
+				// hack: remove this thing, it's breaking all the dates
 			},
 
 			inputFocused: function( e ) {
