@@ -37,9 +37,19 @@
       %h2 Commentaires
       %hr
 
-      %p{style: "margin-bottom: 20px; margin-left: 10px"}
-        %i
-          There is no comments yet.
+      -if not event.comment_set.exists
+        %p{style: "margin-bottom: 20px; margin-left: 10px"}
+          %i
+            There is no comments yet.
+
+      -else
+        %ul
+          -for comment in event.comment_set.all
+            %li
+              %b
+                {{ comment.name }}:
+
+              =comment.content
 
       .row
         .col-md-8.col-md-offset-1
