@@ -4,8 +4,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 
-from .forms import EventForm, EventAttendyForm
-from .models import Event, EventAttending
+from .forms import EventForm, EventAttendyForm, CommentForm
+from .models import Event, EventAttending, Comment
 
 
 def new_event(request):
@@ -73,7 +73,11 @@ def event_view(request, slug, user_uuid=None):
 
     event_attending = get_object_or_404(EventAttending, uuid=user_uuid) if user_uuid else None
 
-    if request.method == "POST":
+    in_comment_posting_mode = request.method == "POST" and "comment_name" in request.POST and "comment_content" in request.POST
+
+    comment_form = CommentForm(request.POST) if in_comment_posting_mode else CommentForm()
+
+    if request.method == "POST" and not in_comment_posting_mode:
         form = EventAttendyForm(request.POST)
     elif event_attending:
         form = EventAttendyForm({
@@ -83,7 +87,19 @@ def event_view(request, slug, user_uuid=None):
     else:
         form = EventAttendyForm()
 
-    if request.method == "POST" and form.is_valid():
+    if in_comment_posting_mode and comment_form.is_valid():
+        Comment.objects.create(
+            name=comment_form.cleaned_data["comment_name"],
+            content=comment_form.cleaned_data["comment_content"],
+            event=event,
+        )
+
+        if event_attending:
+            return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))
+        else:
+            return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug,)))
+
+    if not in_comment_posting_mode and request.method == "POST" and form.is_valid():
         if event_attending:
             event_attending.name = form.cleaned_data["name"]
             event_attending.choice = form.cleaned_data["choice"]
@@ -101,5 +117,6 @@ def event_view(request, slug, user_uuid=None):
     return render(request, "events/event_detail.haml", {
         "event": event,
         "form": form,
+        "comment_form": comment_form,
         "event_attending": event_attending,
     })
