@@ -45,3 +45,6 @@ class Comment(models.Model):
     content = models.TextField()
     event = models.ForeignKey(Event)
     posted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-posted_at']
