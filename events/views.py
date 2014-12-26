@@ -107,7 +107,7 @@ def event_view(request, slug, user_uuid=None):
         if event_attending:
             return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))
         else:
-            return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug,)))
+            return HttpResponseRedirect(reverse("event_detail", args=(event.slug,)))
 
     if not in_comment_posting_mode and request.method == "POST" and form.is_valid():
         if event_attending:
