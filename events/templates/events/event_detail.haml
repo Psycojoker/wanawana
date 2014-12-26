@@ -44,12 +44,13 @@
 
       -else
         -for comment in event.comment_set.all
-          .panel.panel-default
-            .panel-heading= comment.name
-            .panel-body= comment.content
+          .col-md-10.col-md-offset-1
+            .panel.panel-default
+              .panel-heading= comment.name
+              .panel-body= comment.content
 
       .row
-        .col-md-8.col-md-offset-1
+        .col-md-8.col-md-offset-2
           .form-box
             %form.form{action: "", method: "post"}
               -csrf_token
