@@ -1,6 +1,6 @@
 #myScheduler.scheduler.row{data-initialize: "scheduler"}
   .start-datetime
-    .form-group.col-md-6
+    .form-group.col-md-6{class: "{% if form.date.errors %}has-error{% elif form.date %}has-success{% endif %}"}
       %label.control-label.scheduler-label{for: "myStartDate"}
         Date
       .datepicker.start-date
@@ -85,8 +85,8 @@
                   %a.btn.datepicker-wheels-select{"type": "button"}
                     Select
                     %span.sr-only Month and Year
-    .form-group.col-md-6
-      %label{"for": "MyStartTime"} Start Time
+    .form-group.col-md-6{class: "{% if form.time.errors %}has-error{% elif form.time %}has-success{% endif %}"}
+      %label.control-label{"for": "MyStartTime"} Start Time
       .input-group.combobox.start-time
         %input#myStartTime.form-control{type: "text", name: "time"}
         .input-group-btn
