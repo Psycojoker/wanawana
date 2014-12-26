@@ -61,13 +61,13 @@
                         Email
                       %input#comment_email.form-control{type: "text", required: "", placeholder: "name", name: "email"}
 
-            .form-group
-              %label.control-label{for: "comment_content"}
-                Comment
-              %textarea#comment_content.form-control{required: "true"}
+              .form-group
+                %label.control-label{for: "comment_content"}
+                  Comment
+                %textarea#comment_content.form-control{name: "comment_content", required: "true"}
 
-            .form-group
-              %input.form-control.btn.btn-primary{type: "submit", value: "Add a comment"}
+              .form-group
+                %input.form-control.btn.btn-primary{type: "submit", value: "Add a comment"}
 
     .col-md-3
       %h1 Attendees
