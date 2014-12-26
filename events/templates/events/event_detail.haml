@@ -43,13 +43,10 @@
             There is no comments yet.
 
       -else
-        %ul
-          -for comment in event.comment_set.all
-            %li
-              %b
-                {{ comment.name }}:
-
-              =comment.content
+        -for comment in event.comment_set.all
+          .panel.panel-default
+            .panel-heading= comment.name
+            .panel-body= comment.content
 
       .row
         .col-md-8.col-md-offset-1
