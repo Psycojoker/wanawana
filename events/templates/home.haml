@@ -19,6 +19,9 @@
 
 
 -block bootstrap3_content
+  %a{href: "https://github.com/psycojoker/wanawana"}
+    %img{style: "position: absolute; top: 0; right: 0; border: 0;", src: "{{ STATIC_URL }}img/ribon.png", alt: "Fork me on GitHub"}
+
   .container
     %p
       %a.btn.btn-primary.btn-lg{href: "{% url 'new_event' %}"}
