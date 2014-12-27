@@ -38,6 +38,7 @@ class EventAttending(models.Model):
     event = models.ForeignKey(Event)
     uuid = models.CharField(max_length=255, db_index=True)
     answered_at = models.DateTimeField(auto_now_add=True)
+    private_answer = models.BooleanField(default=False)
 
 
 class Comment(models.Model):
