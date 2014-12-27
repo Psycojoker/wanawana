@@ -58,6 +58,12 @@ class CommentForm(forms.Form):
     comment_name = forms.CharField()
     comment_content = forms.CharField()
 
+    def clean_comment_content(self):
+        if len(self.cleaned_data["comment_content"].strip()) == 0:
+            raise forms.ValidationError("Your comment can't be an empty string")
+
+        return self.cleaned_data["comment_content"]
+
     def clean_comment_name(self):
         if len(self.cleaned_data["comment_name"].strip()) == 0:
             raise forms.ValidationError("Your name can't be an empty string")
