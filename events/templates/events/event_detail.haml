@@ -130,11 +130,16 @@
             %span.badge{style: "float: right"}= event.yes_attending.count
             Attending
           %ul.list-group
-            -for attending in event.yes_attending
+            -for attending in event.yes_attending_public
               %li.list-group-item
                 -if attending.uuid == event_attending.uuid
                   %span.badge You
                 =attending.name
+
+        -if event.yes_attending_private.exists
+          %p{style: "margin-left: 15px"}
+            %i
+              And {{ event.yes_attending_private.count }} hidden attendee{{ event.yes_attending_private.count|pluralize }}
 
       -if event.maybe_attending.exists
         .panel.panel-warning
@@ -142,11 +147,16 @@
             %span.badge{style: "float: right"}= event.maybe_attending.count
             Maybe attending
           %ul.list-group
-            -for attending in event.maybe_attending
+            -for attending in event.maybe_attending_public
               %li.list-group-item
                 -if attending.uuid == event_attending.uuid
                   %span.badge You
                 =attending.name
+
+        -if event.maybe_attending_private.exists
+          %p{style: "margin-left: 15px"}
+            %i
+              And {{ event.maybe_attending_private.count }} hidden attendee{{ event.maybe_attending_private.count|pluralize }}
 
       -if event.no_attending.exists
         .panel.panel-default
@@ -154,8 +164,13 @@
             %span.badge{style: "float: right"}= event.no_attending.count
             Not attending
           %ul.list-group
-            -for attending in event.no_attending
+            -for attending in event.no_attending_public
               %li.list-group-item
                 -if attending.uuid == event_attending.uuid
                   %span.badge You
                 =attending.name
+
+        -if event.no_attending_private.exists
+          %p{style: "margin-left: 15px"}
+            %i
+              And {{ event.no_attending_private.count }} hidden attendee{{ event.no_attending_private.count|pluralize }}

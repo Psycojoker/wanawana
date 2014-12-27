@@ -28,6 +28,24 @@ class Event(models.Model):
     def no_attending(self):
         return self.eventattending_set.filter(choice="no")
 
+    def yes_attending_public(self):
+        return self.eventattending_set.filter(choice="yes", private_answer=False)
+
+    def maybe_attending_public(self):
+        return self.eventattending_set.filter(choice="maybe", private_answer=False)
+
+    def no_attending_public(self):
+        return self.eventattending_set.filter(choice="no", private_answer=False)
+
+    def yes_attending_private(self):
+        return self.eventattending_set.filter(choice="yes", private_answer=True)
+
+    def maybe_attending_private(self):
+        return self.eventattending_set.filter(choice="maybe", private_answer=True)
+
+    def no_attending_private(self):
+        return self.eventattending_set.filter(choice="no", private_answer=True)
+
     def __unicode__(self):
         return "%s (%s)" % (self.title, self.slug)
 
