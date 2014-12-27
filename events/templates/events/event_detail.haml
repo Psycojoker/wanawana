@@ -58,10 +58,13 @@
               %h4 Add a comment
               .row
                 .col-md-6
-                  .form-group
+                  .form-group{class: "{% if comment_form.comment_name.errors %}has-error{% elif comment_form.data and comment_form.comment_name %}has-success{% endif %}"}
                     %label.control-label{for: "comment_name"}
                       Name
                     %input#comment_name.form-control{type: "text", required: "", placeholder: "name", name: "comment_name", value: "{% if form.name.data %}{{ form.name.data }}{% endif %}", required: "true"}
+
+                    -for error in comment_form.comment_name.errors
+                      %span.help-block= error
 
                 .col-md-6
                   .form-group
