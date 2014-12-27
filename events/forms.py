@@ -46,6 +46,7 @@ class EventForm(forms.Form):
 class EventAttendyForm(forms.Form):
     name = forms.CharField()
     choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
+    private_answer = forms.BooleanField(required=False)
 
     def clean_name(self):
         if len(self.cleaned_data["name"].strip()) == 0:
