@@ -41,6 +41,53 @@
         %button.btn.btn-primary.form-control{type: "submit"}
           Modify
 
+    %h2 Attendees
+    %hr
+
+    -if not event.yes_attending.exists and not event.maybe_attending.exists and not event.no_attending.exists
+      %p{style: "text-align: center"}
+        %i
+          No one has answer to this event yet.
+
+    -else
+      .row
+
+        .col-md-4
+          .panel.panel-success
+            .panel-heading
+              %span.badge{style: "float: right"}= event.yes_attending.count
+              Attending
+            %ul.list-group
+              -for attending in event.yes_attending
+                %li.list-group-item
+                  -if attending.uuid == event_attending.uuid
+                    %span.badge You
+                  =attending.name
+
+        .col-md-4
+          .panel.panel-warning
+            .panel-heading
+              %span.badge{style: "float: right"}= event.maybe_attending.count
+              Maybe attending
+            %ul.list-group
+              -for attending in event.maybe_attending
+                %li.list-group-item
+                  -if attending.uuid == event_attending.uuid
+                    %span.badge You
+                  =attending.name
+
+        .col-md-4
+          .panel.panel-default
+            .panel-heading
+              %span.badge{style: "float: right"}= event.no_attending.count
+              Not attending
+            %ul.list-group
+              -for attending in event.no_attending
+                %li.list-group-item
+                  -if attending.uuid == event_attending.uuid
+                    %span.badge You
+                  =attending.name
+
 -block javascript
   :javascript
     $(function() {
