@@ -108,8 +108,8 @@
                 %input#maybe{type: "radio", name: "choice", value: "maybe", autocomplete: "off"} Maybe
 
           .form-group{class: "{% if form.private_answer.errors %}has-error{% elif form.data and form.private_answer %}has-success{% endif %}"}
-            %label.control-label{for: "private_answer", style: "font-weight: normal"}
-              %input#private_answer{type: "checkbox", required: "", name: "private_answer", value: "false"}
+            %label.control-label{for: "id_private_answer", style: "font-weight: normal"}
+              <input id="id_private_answer" type="checkbox" name="private_answer" value="true" {% if form.private_answer.data %}checked{% endif %}/>
               Don't display my name in the list
             -for error in comment_form.private_answer.errors
               %span.help-block= error

@@ -93,6 +93,7 @@ def event_view(request, slug, user_uuid=None):
         form = EventAttendyForm({
             "name": event_attending.name,
             "choice": event_attending.choice,
+            "private_answer": event_attending.private_answer,
         })
     else:
         form = EventAttendyForm()
@@ -113,6 +114,7 @@ def event_view(request, slug, user_uuid=None):
         if event_attending:
             event_attending.name = form.cleaned_data["name"]
             event_attending.choice = form.cleaned_data["choice"]
+            event_attending.private_answer = form.cleaned_data["private_answer"]
             event_attending.save()
         else:
             event_attending = EventAttending.objects.create(
@@ -120,6 +122,7 @@ def event_view(request, slug, user_uuid=None):
                 choice=form.cleaned_data["choice"],
                 event=event,
                 uuid=str(uuid4()),
+                private_answer = form.cleaned_data["private_answer"],
             )
 
         return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))
