@@ -11,7 +11,7 @@
       -if event_attending
         .alert.alert-danger
           %b Warning:
-          this page has your personal id in it : don't loose the adress or you won't be able to change your answer in the future!
+          this page has your personal id in it: don't lose the address or you won't be able to change your answer in the future!
           %a{href: "{{ current_page_url }}"}= current_page_url
 
       %p
@@ -31,7 +31,7 @@
           -if event.location_address
             =event.location_address
           -else
-            No location yet for this event, don't hesitate to suggest one!
+            No location for this event yet, don't hesitate to suggest one!
 
       %p= event.description
 
@@ -110,7 +110,7 @@
       -if not event.yes_attending.exists and not event.maybe_attending.exists and not event.no_attending.exists
         %p{style: "text-align: center"}
           %i
-            No one has answer to this event yet.
+            No one has answered to this event yet.
 
       -if event.yes_attending.exists
         .panel.panel-success
