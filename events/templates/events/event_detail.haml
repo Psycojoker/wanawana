@@ -107,6 +107,13 @@
               %label{class: "btn btn-default {% if form.choice.data == 'maybe' %}active{% endif %}"}
                 %input#maybe{type: "radio", name: "choice", value: "maybe", autocomplete: "off"} Maybe
 
+          .form-group{class: "{% if form.private_answer.errors %}has-error{% elif form.data and form.private_answer %}has-success{% endif %}"}
+            %label.control-label{for: "private_answer", style: "font-weight: normal"}
+              %input#private_answer{type: "checkbox", required: "", name: "private_answer", value: "false"}
+              Don't display my name in the list
+            -for error in comment_form.private_answer.errors
+              %span.help-block= error
+
           .form-group
             %input.form-control.btn.btn-primary{type: "submit", value: "{% if event_attending %}Modify{% else %}Respond{% endif %}"}
 
