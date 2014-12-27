@@ -13,7 +13,7 @@
           Access event public page
 
       .alert.alert-danger
-        %b Do not lose this URL! This is your only way to edit this event information. Bookmark it or write it somewhere:
+        %b Don't lose this URL! This is your only way to edit this event information. Bookmark it or write it somewhere:
         %a{href: "{{ current_page_url }}"}= current_page_url
 
     %form.form{method: "post"}
@@ -47,7 +47,7 @@
     -if not event.yes_attending.exists and not event.maybe_attending.exists and not event.no_attending.exists
       %p{style: "text-align: center"}
         %i
-          No one has answer to this event yet.
+          No one has answered to this event yet.
 
     -else
       .row
