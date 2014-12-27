@@ -17,7 +17,7 @@ class EventForm(forms.Form):
 
     def clean_title(self):
         if len(self.cleaned_data["title"].strip()) == 0:
-            raise forms.ValidationError("title can't be an empty string")
+            raise forms.ValidationError("The event title can't be an empty string")
 
         return self.cleaned_data["title"]
 
@@ -49,7 +49,7 @@ class EventAttendyForm(forms.Form):
 
     def clean_name(self):
         if len(self.cleaned_data["name"].strip()) == 0:
-            raise forms.ValidationError("name can't be an empty string")
+            raise forms.ValidationError("Your name can't be an empty string")
 
         return self.cleaned_data["name"]
 
@@ -60,6 +60,6 @@ class CommentForm(forms.Form):
 
     def clean_comment_name(self):
         if len(self.cleaned_data["comment_name"].strip()) == 0:
-            raise forms.ValidationError("name can't be an empty string")
+            raise forms.ValidationError("Your name can't be an empty string")
 
         return self.cleaned_data["comment_name"]
