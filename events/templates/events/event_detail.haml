@@ -111,6 +111,10 @@
             %label.control-label{for: "id_private_answer", style: "font-weight: normal"}
               <input id="id_private_answer" type="checkbox" name="private_answer" value="true" {% if form.private_answer.data %}checked{% endif %}/>
               Don't display my name in the list
+              %br
+              %center
+                %i
+                  %small event organiser(s) will be able to see it
             -for error in comment_form.private_answer.errors
               %span.help-block= error
 
