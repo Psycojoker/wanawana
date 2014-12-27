@@ -73,10 +73,12 @@
                         Email
                       %input#comment_email.form-control{type: "text", required: "", placeholder: "name", name: "email"}
 
-              .form-group
+              .form-group{class: "{% if comment_form.comment_content.errors %}has-error{% elif comment_form.data and comment_form.comment_content %}has-success{% endif %}"}
                 %label.control-label{for: "comment_content"}
                   Comment
                 %textarea#comment_content.form-control{name: "comment_content", required: "true"}
+                -for error in comment_form.comment_content.errors
+                  %span.help-block= error
 
               .form-group
                 %input.form-control.btn.btn-primary{type: "submit", value: "Add a comment"}
