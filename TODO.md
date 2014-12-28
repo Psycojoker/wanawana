@@ -1,23 +1,14 @@
-Feedback
-========
-
-* users don't know what is a slug -> explain it + autofill it in js, call it "public url"
-
 User management
 ===============
 
-* when creating an event, create a user (with or without email) and link it to the current connected user via session
 * add possibility on the home page to receive a login link by email that list all your events created/registrated to
 
 Event management
 ================
 
-* javascript date and time picker
-
 * if admin email spplied -> send informations by email
 
 * localisation via leaflet of the event
-* users invitation -> nope finally
 * possibility to require participant emails
 * offer differents css templates
 * show/hide users list
@@ -31,8 +22,6 @@ Event management
 Event page
 ==========
 
-* comments
-* possibility for an user to not appears in the user list
 * anti spam ?
 * emails reminder
 * possibility when registering and when giving and email to receive notifications about the event
