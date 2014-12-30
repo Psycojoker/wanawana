@@ -12,7 +12,7 @@
         %a.btn.btn-primary.btn-lg{href: "{% url 'event_detail' event.slug %}", target: "_blank"}
           Access event public page
 
-      .alert.alert-danger
+      .alert.alert-warning
         %b Don't lose this URL! This is your only way to edit this event information. Bookmark it or write it somewhere:
         %a{href: "{{ current_page_url }}"}= current_page_url
 
