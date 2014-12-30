@@ -15,11 +15,14 @@
           .col-md-6
             -bootstrap_field form.title
           .col-md-6
-            .form-group
+            .form-group{class: "{% if form.slug.errors %}has-error{% elif form.data and form.slug %}has-success{% endif %}"}
               %label.control-label{for: "id_slug"} Public url (optional)
               .input-group
                 .input-group-addon= current_base_url
                 %input#id_slug.form-control{name: "slug", placeholder: "(will be generated from title if empty)", title: "", type: "text"}
+
+              -for error in form.slug.errors
+                %span.help-block= error
 
       .form-group
         -bootstrap_field form.description
