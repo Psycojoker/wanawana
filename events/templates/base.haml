@@ -3,6 +3,7 @@
 -block bootstrap3_extra_head
   %link{href: "{{ STATIC_URL }}css/main.css", rel: "stylesheet"}
   %link{href: "{{ STATIC_URL }}css/fuelux.min.css", rel: "stylesheet"}
+  %link{href: "{{ STATIC_URL }}css/sticky-footer.css", rel: "stylesheet"}
   -block head
 
 -block bootstrap3_title
@@ -11,6 +12,12 @@
 -block bootstrap3_content
   .container
     -block content
+
+
+  %footer.footer
+    .container
+      %p.text-muted
+        Place sticky footer content here.
 
 -block bootstrap3_extra_script
   %script{src: "{{ STATIC_URL }}js/fuelux.js"}
