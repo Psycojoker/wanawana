@@ -64,6 +64,8 @@ def event_admin(request, admin_id):
 
         event.description = form.cleaned_data["description"]
 
+        event.admin_email = form.cleaned_data["admin_email"]
+
         event.date = form.cleaned_data["date"]
         event.time = form.cleaned_data["time"]
 
