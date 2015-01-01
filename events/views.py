@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from wanawana.utils import get_base_url
 
@@ -33,7 +34,7 @@ def new_event(request):
         event.save()
 
         if event.admin_email:
-            send_mail("[Wanawana] the admin url for you event '%s'" % (event.title), "Hello,\n\nSomeone, hopefully you, has created the event %(url_scheme)s://%(base_url)s/%(event_slug)s on http://%(base_url)s refering to this email has the administrator email.\n\nYou can administrate this event here: %(url_scheme)s://%(base_url)s/event_admin/%(event_admin_id)s\n\n<3" % {"url_scheme": request.META["wsgi.url_scheme"], "base_url": get_base_url(request), "event_slug": event.slug, "event_admin_id": event.admin_id}, 'noreply@%s' % get_base_url(request), [event.admin_email], fail_silently=False)
+            send_mail("[Wanawana] the admin url for you event '%s'" % (event.title), render_to_string("emails/new_event.txt", {"url_scheme": request.META["wsgi.url_scheme"], "base_url": get_base_url(request), "event_slug": event.slug, "event_admin_id": event.admin_id}), 'noreply@%s' % get_base_url(request), [event.admin_email], fail_silently=False)
 
         return HttpResponseRedirect(reverse("event_admin", args=(event.admin_id,)))
 

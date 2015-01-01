@@ -1,0 +1,7 @@
+Hello,
+
+Someone, hopefully you, has created the event {{ url_scheme }}://{{ base_url }}/{{ event_slug }} on http://{{ base_url }} refering to this email has the administrator email.
+
+You can administrate this event here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event_admin_id }}
+
+<3
