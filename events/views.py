@@ -34,7 +34,18 @@ def new_event(request):
         event.save()
 
         if event.admin_email:
-            send_mail("[Wanawana] the admin url for you event '%s'" % (event.title), render_to_string("emails/new_event.txt", {"url_scheme": request.META["wsgi.url_scheme"], "base_url": get_base_url(request), "event_slug": event.slug, "event_admin_id": event.admin_id}), 'noreply@%s' % get_base_url(request), [event.admin_email], fail_silently=False)
+            email_body = render_to_string("emails/new_event.txt", {
+                "url_scheme": request.META["wsgi.url_scheme"],
+                "base_url": get_base_url(request),
+                "event_slug": event.slug,
+                "event_admin_id": event.admin_id
+            })
+
+            send_mail("[Wanawana] the admin url for you event '%s'" % (event.title),
+                      email_body,
+                      'noreply@%s' % get_base_url(request),
+                      [event.admin_email],
+                      fail_silently=False)
 
         return HttpResponseRedirect(reverse("event_admin", args=(event.admin_id,)))
 
