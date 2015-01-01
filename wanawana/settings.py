@@ -66,6 +66,12 @@ TEMPLATE_LOADERS = (
 )
 WSGI_APPLICATION = 'wanawana.wsgi.application'
 
+# Email configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
