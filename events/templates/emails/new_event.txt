@@ -4,4 +4,4 @@ Someone, hopefully you, has created the event {{ url_scheme }}://{{ base_url }}/
 
 You can administrate this event here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event_admin_id }}
 
-<3
+Cheers,
