@@ -53,6 +53,7 @@ def event_admin(request, admin_id):
         form = EventForm({
             "title": event.title,
             "description": event.description,
+            "admin_email": event.admin_email,
             "date": event.date.strftime("%d/%m/%Y") if event.date else None,
             "time": remove_first_zero(event.time.strftime("%H:%M")) if event.time else None,
             "location_address": event.location_address,

@@ -29,6 +29,11 @@
                 Public url
               %input.form-control{placeholder: "slug", title: "", type: "text", value: "{{ current_base_url }}{{ event.slug }}/", readonly: "true"}
 
+      .row
+        .form-group
+          .col-md-6
+            -bootstrap_field form.admin_email
+
       .form-group
         -bootstrap_field form.description
 
