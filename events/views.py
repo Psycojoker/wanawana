@@ -18,6 +18,8 @@ def new_event(request):
         event.title = form.cleaned_data["title"]
         event.slug = form.generate_slug()
 
+        event.admin_email = form.cleaned_data["admin_email"]
+
         event.description = form.cleaned_data["description"]
 
         event.admin_id = form.generate_admin_id()

@@ -24,6 +24,11 @@
               -for error in form.slug.errors
                 %span.help-block= error
 
+      .row
+        .form-group
+          .col-md-6
+            -bootstrap_field form.admin_email
+
       .form-group
         -bootstrap_field form.description
 
