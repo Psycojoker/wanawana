@@ -10,7 +10,7 @@ from .models import Event
 class EventForm(forms.Form):
     title = forms.CharField()
     admin_email = forms.EmailField(required=False, label="Administrator email (optional)")
-    send_notication_emails = forms.BooleanField(required=False, initial=False)
+    send_notification_emails = forms.BooleanField(required=False, initial=False)
     slug = forms.SlugField(required=False, label="Public url (optional)")
     description = forms.CharField(required=False, widget=forms.Textarea, label="Description (optional)")
     date = forms.DateField(required=False, widget=forms.DateInput, input_formats=['%d/%m/%Y'])

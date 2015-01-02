@@ -21,7 +21,7 @@ def new_event(request):
         event.slug = form.generate_slug()
 
         event.admin_email = form.cleaned_data["admin_email"]
-        event.send_notication_emails = form.cleaned_data["send_notication_emails"]
+        event.send_notification_emails = form.cleaned_data["send_notification_emails"]
 
         event.description = form.cleaned_data["description"]
 

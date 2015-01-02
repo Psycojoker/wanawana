@@ -34,11 +34,11 @@
           .col-md-6
             -bootstrap_field form.admin_email
           .col-md-6{style: "margin-top: 30px"}
-            .form-group{class: "{% if form.send_notication_emails.errors %}has-error{% elif form.data and form.send_notication_emails %}has-success{% endif %}"}
-              %label.control-label{for: "send_notication_emails"}
-                %input#send_notication_emails{type: "checkbox", name: "send_notication_emails", value: "send_notication_emails"}
+            .form-group{class: "{% if form.send_notification_emails.errors %}has-error{% elif form.data and form.send_notification_emails %}has-success{% endif %}"}
+              %label.control-label{for: "send_notification_emails"}
+                %input#send_notification_emails{type: "checkbox", name: "send_notification_emails", value: "send_notification_emails"}
                 send me emails for answers and comments on the event
-              -for error in form.send_notication_emails.errors
+              -for error in form.send_notification_emails.errors
                 %span.help-block= error
 
       .form-group

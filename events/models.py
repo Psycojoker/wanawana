@@ -11,7 +11,7 @@ class Event(models.Model):
 
     admin_id = models.CharField(max_length=30, db_index=True, unique=True)
     admin_email = models.EmailField(null=True, blank=True)
-    send_notication_emails = models.BooleanField(default=False)
+    send_notification_emails = models.BooleanField(default=False)
 
     date = models.DateField(null=True, blank=True)
     time = models.TimeField(null=True, blank=True)
