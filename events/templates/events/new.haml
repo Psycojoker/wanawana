@@ -43,7 +43,7 @@
           .col-md-6{style: "margin-top: 30px"}
             .form-group{class: "{% if form.send_notication_emails.errors %}has-error{% elif form.data and form.send_notication_emails %}has-success{% endif %}"}
               %label.control-label{for: "send_notication_emails"}
-                %input#send_notication_emails{type: "checkbox", name: "send_notication_emails", value: "false"}
+                %input#send_notication_emails{type: "checkbox", name: "send_notication_emails", value: "send_notication_emails"}
                 send me emails for answers and comments on the event
               -for error in form.send_notication_emails.errors
                 %span.help-block= error
