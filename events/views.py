@@ -71,6 +71,7 @@ def event_admin(request, admin_id):
             "title": event.title,
             "description": event.description,
             "admin_email": event.admin_email,
+            "send_notification_emails": event.send_notification_emails,
             "date": event.date.strftime("%d/%m/%Y") if event.date else None,
             "time": remove_first_zero(event.time.strftime("%H:%M")) if event.time else None,
             "location_address": event.location_address,
