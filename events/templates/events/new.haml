@@ -27,7 +27,18 @@
       .row
         .form-group
           .col-md-6
-            -bootstrap_field form.admin_email
+            .form-group{class: "{% if form.admin_email.errors %}has-error{% elif form.data and form.admin_email %}has-success{% endif %}"}
+              %label.control-label{for: "admin_email"}
+                Administrator email (optional)
+                %small
+                  %i
+                    we'll send you a link to the event administration page
+              %input#admin_email.form-control{type: "text", required: "", placeholder: "Administrator email (optional)
+                %small
+                  %i
+                    we'll send you a link to the event administration page", name: "admin_email", placeholder: "Administrator email"}
+              -for error in comment_form.admin_email.errors
+                %span.help-block= error
 
       .form-group
         -bootstrap_field form.description
