@@ -37,7 +37,7 @@
                 %small
                   %i
                     we'll send you a link to the event administration page", name: "admin_email", placeholder: "Administrator email"}
-              -for error in comment_form.admin_email.errors
+              -for error in form.admin_email.errors
                 %span.help-block= error
 
           .col-md-6{style: "margin-top: 30px"}
