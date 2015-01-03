@@ -149,6 +149,19 @@ def event_view(request, slug, user_uuid=None):
                 private_answer = form.cleaned_data["private_answer"],
             )
 
+            if event.admin_email and event.send_notification_emails:
+                email_body = render_to_string("emails/event_attending_answer.txt", {
+                    "url_scheme": request.META["wsgi.url_scheme"],
+                    "base_url": get_base_url(request),
+                    "event_attending": event_attending,
+                    "event": event,
+                })
+
+                send_mail("[Wanawana] %s has answer '%s' to your event '%s'" % (event_attending.name, event_attending.choice, event.title),
+                         email_body,
+                         "noreply@%s" % get_base_url(request),
+                         [event.admin_email])
+
         return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))
 
     return render(request, "events/event_detail.haml", {
