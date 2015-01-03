@@ -101,11 +101,11 @@
             =form.choice.errors
             .btn-group.btn-group-justified{data-toggle: "buttons"}
               %label{class: "btn btn-default {% if form.choice.data == 'yes' or not event_attending %}active{% endif %}"}
-                %input#yes{type: "radio", name: "choice", value: "yes", checked: "true", autocomplete: "off"} Yes
+                <input id="yes" type="radio" name="choice" value="yes" autocomplete="off" {% if form.choice.data == 'yes' or not event_attending %}checked{% endif %}>Yes</input>
               %label{class: "btn btn-default {% if form.choice.data == 'no' %}active{% endif %}"}
-                %input#no{type: "radio", name: "choice", value: "no", autocomplete: "off"} No
+                <input id="no" type="radio" name="choice" value="no" autocomplete="off" {% if form.choice.data == 'no' %}checked{% endif %}>No</input>
               %label{class: "btn btn-default {% if form.choice.data == 'maybe' %}active{% endif %}"}
-                %input#maybe{type: "radio", name: "choice", value: "maybe", autocomplete: "off"} Maybe
+                <input id="maybe" type="radio" name="choice" value="maybe" autocomplete="off" {% if form.choice.data == 'maybe' %}checked{% endif %}>Maybe</input>
 
           .form-group{class: "{% if form.private_answer.errors %}has-error{% elif form.data and form.private_answer %}has-success{% endif %}"}
             %label.control-label{for: "id_private_answer", style: "font-weight: normal"}
