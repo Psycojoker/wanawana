@@ -37,3 +37,21 @@ def send_admin_notification_of_answer_on_event(request, event, event_attending):
              email_body,
              "noreply@%s" % get_base_url(request),
              [event.admin_email])
+
+
+def send_admin_notification_of_answer_modification(request, event, event_attending, modifications):
+    if not event.admin_email or not event.send_notification_emails or not modifications:
+        return
+
+    email_body = render_to_string("emails/event_attending_answer_modification.txt", {
+        "url_scheme": request.META["wsgi.url_scheme"],
+        "base_url": get_base_url(request),
+        "event_attending": event_attending,
+        "event": event,
+        "modifications": modifications,
+    })
+
+    send_mail("[Wanawana] %s has modify his answer to your event '%s'" % (event_attending.name, event.title),
+             email_body,
+             "noreply@%s" % get_base_url(request),
+             [event.admin_email])

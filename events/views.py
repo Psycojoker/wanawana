@@ -8,7 +8,7 @@ from wanawana.utils import get_base_url
 
 from .forms import EventForm, EventAttendyForm, CommentForm
 from .models import Event, EventAttending, Comment
-from .emails import send_admin_link_on_event_creation, send_admin_notification_of_answer_on_event
+from .emails import send_admin_link_on_event_creation, send_admin_notification_of_answer_on_event, send_admin_notification_of_answer_modification
 
 
 def new_event(request):
@@ -123,10 +123,20 @@ def event_view(request, slug, user_uuid=None):
 
     if not in_comment_posting_mode and request.method == "POST" and form.is_valid():
         if event_attending:
+            modifications = []
+            if event_attending.name != form.cleaned_data["name"]:
+                modifications.append("has changed his name from %s to %s" % (event_attending.name, form.cleaned_data["name"]))
+
+            if event_attending.choice != form.cleaned_data["choice"]:
+                modifications.append("has changed his choice from %s to %s" % (event_attending.choice, form.cleaned_data["choice"]))
+
             event_attending.name = form.cleaned_data["name"]
             event_attending.choice = form.cleaned_data["choice"]
             event_attending.private_answer = form.cleaned_data["private_answer"]
             event_attending.save()
+
+            send_admin_notification_of_answer_modification(request, event, event_attending, modifications)
+
         else:
             event_attending = EventAttending.objects.create(
                 name=form.cleaned_data["name"],
