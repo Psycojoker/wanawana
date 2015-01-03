@@ -1,0 +1,14 @@
+Hello,
+
+{{ comment.name }} has left a new comment on your event {{ event.title }}.
+
+The comment reads has follow:
+
+{{ comment.content }}
+
+You can find your event here: {{ url_scheme }}://{{ base_url }}/{{ event.slug }}
+And it's administration page here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event.uuid }}
+
+You can uncheck "send me emails for answers and comments on the event" (or remove your email) on the event administration page to avoid receiving more emails like this.
+
+Cheers,

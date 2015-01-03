@@ -8,7 +8,7 @@ from wanawana.utils import get_base_url
 
 from .forms import EventForm, EventAttendyForm, CommentForm
 from .models import Event, EventAttending, Comment
-from .emails import send_admin_link_on_event_creation, send_admin_notification_of_answer_on_event, send_admin_notification_of_answer_modification
+from .emails import send_admin_link_on_event_creation, send_admin_notification_of_answer_on_event, send_admin_notification_of_answer_modification, send_admin_notification_for_new_comment
 
 
 def new_event(request):
@@ -110,11 +110,13 @@ def event_view(request, slug, user_uuid=None):
         form = EventAttendyForm()
 
     if in_comment_posting_mode and comment_form.is_valid():
-        Comment.objects.create(
+        comment = Comment.objects.create(
             name=comment_form.cleaned_data["comment_name"],
             content=comment_form.cleaned_data["comment_content"],
             event=event,
         )
+
+        send_admin_notification_for_new_comment(request, event, comment)
 
         if event_attending:
             return HttpResponseRedirect(reverse("event_detail_uuid", args=(event.slug, event_attending.uuid)))

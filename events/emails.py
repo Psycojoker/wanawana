@@ -55,3 +55,20 @@ def send_admin_notification_of_answer_modification(request, event, event_attendi
              email_body,
              "noreply@%s" % get_base_url(request),
              [event.admin_email])
+
+
+def send_admin_notification_for_new_comment(request, event, comment):
+    if not event.admin_email or not event.send_notification_emails:
+        return
+
+    email_body = render_to_string("emails/event_for_admin_new_comment.txt", {
+        "url_scheme": request.META["wsgi.url_scheme"],
+        "base_url": get_base_url(request),
+        "event": event,
+        "comment": comment,
+    })
+
+    send_mail("[Wanawana] new comment by %s to your event '%s'" % (comment.name, event.title),
+             email_body,
+             "noreply@%s" % get_base_url(request),
+             [event.admin_email])
