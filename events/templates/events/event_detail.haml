@@ -98,6 +98,9 @@
             -bootstrap_field form.name
 
           .form-group
+            -bootstrap_field form.email
+
+          .form-group
             =form.choice.errors
             .btn-group.btn-group-justified{data-toggle: "buttons"}
               %label{class: "btn btn-default {% if form.choice.data == 'yes' or not event_attending %}active{% endif %}"}

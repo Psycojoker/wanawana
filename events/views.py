@@ -103,6 +103,7 @@ def event_view(request, slug, user_uuid=None):
     elif event_attending:
         form = EventAttendyForm({
             "name": event_attending.name,
+            "email": event_attending.email,
             "choice": event_attending.choice,
             "private_answer": event_attending.private_answer,
         })
@@ -134,6 +135,7 @@ def event_view(request, slug, user_uuid=None):
 
             event_attending.name = form.cleaned_data["name"]
             event_attending.choice = form.cleaned_data["choice"]
+            event_attending.email = form.cleaned_data["email"]
             event_attending.private_answer = form.cleaned_data["private_answer"]
             event_attending.save()
 
@@ -142,6 +144,7 @@ def event_view(request, slug, user_uuid=None):
         else:
             event_attending = EventAttending.objects.create(
                 name=form.cleaned_data["name"],
+                email=form.cleaned_data["email"],
                 choice=form.cleaned_data["choice"],
                 event=event,
                 uuid=str(uuid4()),
