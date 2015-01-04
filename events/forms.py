@@ -47,6 +47,7 @@ class EventForm(forms.Form):
 
 class EventAttendyForm(forms.Form):
     name = forms.CharField()
+    email = forms.EmailField(required=False, label="Email (optional)")
     choice = forms.ChoiceField(choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
     private_answer = forms.BooleanField(required=False)
 
