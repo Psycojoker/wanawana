@@ -98,7 +98,15 @@
             -bootstrap_field form.name
 
           .form-group
-            -bootstrap_field form.email
+            .form-group{class: "{% if form.email.errors %}has-error{% elif form.data and form.email %}has-success{% endif %}"}
+              %label.control-label{for: "email"}
+                Email (optional)
+                %small
+                  %i
+                    it will never be shared with anyone, never.
+              %input#email.form-control{type: "email", placeholder: "Email", name: "email", value: "{% if form.email.data %}{{ form.email.data }}{% endif %}"}
+              -for error in form.email.errors
+                %span.help-block= error
 
           .form-group
             =form.choice.errors
