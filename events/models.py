@@ -54,6 +54,7 @@ class Event(models.Model):
 
 class EventAttending(models.Model):
     name = models.CharField(max_length=255)
+    email = models.EmailField(null=True, blank=True)
     choice = models.CharField(max_length=255, choices=(('yes', 'Yes'), ('no', 'No'), ('maybe', 'Maybe')))
     event = models.ForeignKey(Event)
     uuid = models.CharField(max_length=255, db_index=True)
