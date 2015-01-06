@@ -7,7 +7,11 @@
   -block head
 
 -block bootstrap3_title
-  WanaWana meet?
+  -if event.title
+    = event.title
+    \- WanaWana meet?
+  -else
+    WanaWana meet?
 
 -block bootstrap3_content
   .container
