@@ -5,7 +5,7 @@ The user {{ event_attending.name }} has made the following modifications in his/
 {% endfor %}
 
 You can find your event here: {{ url_scheme }}://{{ base_url }}/{{ event.slug }}
-And it's administration page here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event.uuid }}
+And it's administration page here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event.admin_id }}
 
 You can uncheck "send me emails for answers and comments on the event" (or remove your email) on the event administration page to avoid receiving more emails like this.
 

@@ -3,7 +3,7 @@ Hello,
 {{ event_attending.name }} has answered '{{ event_attending.choice }}' to your event {{ event.title }}.
 
 You can find your event here: {{ url_scheme }}://{{ base_url }}/{{ event.slug }}
-And it's administration page here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event.uuid }}
+And it's administration page here: {{ url_scheme }}://{{ base_url }}/event_admin/{{ event.admin_id }}
 
 You can uncheck "send me emails for answers and comments on the event" (or remove your email) on the event administration page to avoid receiving more emails like this.
 
